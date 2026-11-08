@@ -36,7 +36,6 @@
         }
         .telegram-btn:hover { background: #1c8adb; }
 
-        /* أزرار التحميل تظهر فقط عند وجود روابط حقيقية */
         .lesson-downloads { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
         .download-btn { background: #1f2937; color: #10b981; border: 1px solid #10b981; padding: 6px 12px; border-radius: 6px; font-size: 12px; text-decoration: none; font-weight: bold; transition: 0.2s; display: inline-flex; align-items: center; gap: 5px; }
         .download-btn:hover { background: rgba(16, 185, 129, 0.1); }
@@ -96,7 +95,6 @@
                         <h2 class="video-title" id="currentLessonTitle">اختر درساً</h2>
                         <p id="currentLessonDesc" style="color: #9ca3af; font-size: 13px; margin-bottom: 10px;"></p>
                         
-                        <!-- أزرار التحميل الديناميكية (تختفي تماماً لو مفيش روابط) -->
                         <div class="lesson-downloads" id="lessonDownloads"></div>
 
                         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 15px;">
@@ -108,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- تقييم الكورس بالنجوم بصمت بدون رسائل مزعجة -->
                 <div class="rating-section">
                     <h3 style="font-size: 15px; color: #10b981; margin-bottom: 5px;">⭐ قيم هذا الكورس</h3>
                     <p style="font-size: 12px; color: #9ca3af;">اضغط على النجوم لتقييم مستواك العام في الكورس</p>
@@ -122,7 +119,6 @@
                 </div>
             </div>
 
-            <!-- موديولات الكورس والدروس -->
             <div>
                 <div class="progress-card">
                     <div class="progress-info">
@@ -163,7 +159,7 @@
                         duration: "2 دقائق", 
                         youtubeId: "62mycj1Ot1Y",
                         files: {
-                            reqs: "",      // لو فارغ أو '#' لن يظهر الزر
+                            reqs: "",     
                             txt: "",       
                             resources: ""  
                         }
@@ -179,17 +175,17 @@
                             txt: "",
                             resources: ""
                         }
-                        {
-                            id: 3,
-                            title:"virtual boxالدرس التالت: تحميل متطلبات الكورس وحل مشكله",
-                            desc:"downloading files",
-                            duration:"دقيقه 5",
-                            youtubeId:"aSJLAXeM0x0",
-                            files:{
-                                reqs: "",
-                                txt: "https://drive.google.com/file/d/14TNiv2Fda2NfW99Emzh6vr5m9n5rT1cS/view?usp=drive_link",
-                                resources:""
-                            }
+                    },
+                    {
+                        id: 3,
+                        title: "الدرس الثالث: تحميل متطلبات الكورس وحل مشكلة virtual box",
+                        desc: "downloading files",
+                        duration: "5 دقائق",
+                        youtubeId: "aSJLAXeM0x0",
+                        files: {
+                            reqs: "",
+                            txt: "https://drive.google.com/file/d/14TNiv2Fda2NfW99Emzh6vr5m9n5rT1cS/view?usp=drive_link",
+                            resources: ""
                         }
                     }
                 ]
@@ -266,7 +262,6 @@
             document.getElementById('currentLessonTitle').innerText = lesson.title;
             document.getElementById('currentLessonDesc').innerText = lesson.desc;
 
-            // إظهار أزرار التحميل فقط إذا كان الرابط حقيقياً وغير فارغ
             const dl = lesson.files || {};
             let downloadsHtml = '';
 
@@ -311,7 +306,6 @@
                 if (idx < val) s.classList.add('active');
                 else s.classList.remove('active');
             });
-            // تمت إزالة الرسالة المنبثقة (Alert) ليتم التقييم بصمت واحترافية
         }
 
         function loadSavedRating() {
